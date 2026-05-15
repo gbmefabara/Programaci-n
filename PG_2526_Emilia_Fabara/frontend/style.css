@@ -1,0 +1,230 @@
+/* Reset básico para evitar márgenes raros */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #4B79BA;
+    /* Azul claro estilo ilustración */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #263544;
+    /* Azul oscuro elegante */
+    padding: 80px 60px;
+    border-radius: 12px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    /* Sombra difuminada */
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    overflow: hidden;
+    /* Para que las cintas laterales se corten bien */
+}
+
+/* --- DECORACIONES ESTILO CONSTRUCCIÓN --- */
+/* Cintas amarillas laterales */
+.tape {
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    top: 0;
+    background: repeating-linear-gradient(-45deg,
+            #F39C12,
+            #F39C12 15px,
+            #263544 15px,
+            #263544 30px);
+}
+
+.tape-left {
+    left: 0;
+}
+
+.tape-right {
+    right: 0;
+    background: repeating-linear-gradient(45deg,
+            #F39C12,
+            #F39C12 15px,
+            #263544 15px,
+            #263544 30px);
+}
+
+/* Corchetes amarillos arriba y abajo */
+.corner {
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    background-color: #F39C12;
+    left: 30%;
+}
+
+.corner-top {
+    top: 12px;
+}
+
+.corner-bottom {
+    bottom: 12px;
+}
+
+.corner::before,
+.corner::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+}
+
+.corner-top::before {
+    left: -8px;
+    top: 0;
+    border-top: 2px solid #F39C12;
+    border-left: 2px solid #F39C12;
+}
+
+.corner-top::after {
+    right: -8px;
+    top: 0;
+    border-top: 2px solid #F39C12;
+    border-right: 2px solid #F39C12;
+}
+
+.corner-bottom::before {
+    left: -8px;
+    bottom: 0;
+    border-bottom: 2px solid #F39C12;
+    border-left: 2px solid #F39C12;
+}
+
+.corner-bottom::after {
+    right: -8px;
+    bottom: 0;
+    border-bottom: 2px solid #F39C12;
+    border-right: 2px solid #F39C12;
+}
+
+/* --- HEADER Y TÍTULO --- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.crane-icon {
+    width: 40px;
+    height: 40px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* --- BARRA DE ESTADO --- */
+.status {
+    background-color: #F39C12;
+    /* Naranja amarillento base (Error) */
+    color: #263544;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0 auto 35px auto;
+    width: 85%;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.status.connected {
+    background-color: #2ECC71;
+    /* Verde cuando conecta */
+    color: white;
+}
+
+/* --- BOTONES EN FORMA DE CRUZ --- */
+.controls {
+    display: grid;
+    grid-template-areas:
+        ". up ."
+        "left stop right"
+        ". down .";
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    border: none;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+
+    /* Efecto 3D con sombras múltiples */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), inset 0 3px 5px rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    /* Sombra hundida al clickear */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+    font-size: 1.8rem;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Asignación a la cruz (Grid) y Gradientes 3D */
+.btn-up {
+    grid-area: up;
+}
+
+.btn-down {
+    grid-area: down;
+}
+
+.btn-up,
+.btn-down {
+    background: radial-gradient(circle at 50% 20%, #5ba75b, #3d793d);
+}
+
+.btn-left {
+    grid-area: left;
+}
+
+.btn-right {
+    grid-area: right;
+}
+
+.btn-left,
+.btn-right {
+    background: radial-gradient(circle at 50% 20%, #3498db, #1d6fa5);
+}
+
+.btn-stop {
+    grid-area: stop;
+    background: radial-gradient(circle at 50% 20%, #e74c3c, #b3362a);
+}

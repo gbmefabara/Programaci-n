@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Grúa Torre</title>
+    <!-- Enlazamos nuestra hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Decoraciones de cinta de peligro laterales -->
+        <div class="tape tape-left"></div>
+        <div class="tape tape-right"></div>
+        
+        <!-- Decoraciones de corchetes amarillos superior/inferior -->
+        <div class="corner corner-top"></div>
+        <div class="corner corner-bottom"></div>
+
+        <div class="header">
+            <!-- Icono de Grúa SVG -->
+            <svg class="crane-icon" viewBox="0 0 24 24" fill="none" stroke="#F39C12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M7 21V5a2 2 0 0 1 2-2h6"></path>
+                <path d="M9 7l12-3"></path>
+                <path d="M17 4v4"></path>
+                <path d="M17 8h3"></path>
+            </svg>
+            <h1>Control de la Grúa</h1>
+        </div>
+        
+        <!-- Estado de la conexión -->
+        <div id="status" class="status">⚠️ Desconectado</div>
+        
+        <!-- Contenedor de los botones (Distribuidos en Cruz) -->
+        <div class="controls">
+            <!-- Botón Arriba -->
+            <button class="btn btn-up" onmousedown="sendCommand('up')" onmouseup="sendCommand('stop')" ontouchstart="sendCommand('up')" ontouchend="sendCommand('stop')">
+                <span class="icon">&#8593;</span>
+                <span class="label">Subir</span>
+            </button>
+            
+            <!-- Botón Izquierda -->
+            <button class="btn btn-left" onmousedown="sendCommand('left')" onmouseup="sendCommand('stop')" ontouchstart="sendCommand('left')" ontouchend="sendCommand('stop')">
+                <span class="icon">&#8592;</span>
+                <span class="label">Izquierda</span>
+            </button>
+            
+            <!-- Botón Parar (Centro) -->
+            <button class="btn btn-stop" onclick="sendCommand('stop')">
+                <span class="icon">&#9632;</span>
+                <span class="label">Parar</span>
+            </button>
+            
+            <!-- Botón Derecha -->
+            <button class="btn btn-right" onmousedown="sendCommand('right')" onmouseup="sendCommand('stop')" ontouchstart="sendCommand('right')" ontouchend="sendCommand('stop')">
+                <span class="icon">&#8594;</span>
+                <span class="label">Derecha</span>
+            </button>
+            
+            <!-- Botón Abajo -->
+            <button class="btn btn-down" onmousedown="sendCommand('down')" onmouseup="sendCommand('stop')" ontouchstart="sendCommand('down')" ontouchend="sendCommand('stop')">
+                <span class="icon">&#8595;</span>
+                <span class="label">Bajar</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Enlazamos nuestro archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
