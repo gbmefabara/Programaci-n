@@ -20,15 +20,19 @@ def connect_wifi():
     print("Conectando a la red WiFi doméstica...")
     
     # ---------------------------------------------------------
-    # CONFIGURACIÓN DE IP PRIVADA/LOCAL (IP ESTÁTICA)
+    # CONFIGURACIÓN DE IP (AHORA AUTOMÁTICA / DHCP)
     # ---------------------------------------------------------
-    # Basado en tu consola, tu red es 192.168.100.X y tu router es 192.168.100.1
-    ip_fija = '192.168.100.200' # Usamos 200 para evitar que choque con otros dispositivos
-    mascara = '255.255.255.0'
-    puerta_enlace = '192.168.100.1'
-    dns = '8.8.8.8'
-    sta.ifconfig((ip_fija, mascara, puerta_enlace, dns))
-    print(f"[TELEMETRÍA] Asignando IP estática local: {ip_fija}")
+    # Hemos comentado la IP estática para que el router asigne
+    # automáticamente la IP, sin importar a qué red te conectes.
+    
+    # ip_fija = '192.168.100.200'
+    # mascara = '255.255.255.0'
+    # puerta_enlace = '192.168.100.1'
+    # dns = '8.8.8.8'
+    # sta.ifconfig((ip_fija, mascara, puerta_enlace, dns))
+    # print(f"[TELEMETRÍA] Asignando IP estática local: {ip_fija}")
+    
+    print("[TELEMETRÍA] Usando DHCP (El router asignará la IP automáticamente)")
 
     # IMPORTANTE: Cambia estos valores por el nombre (SSID) y contraseña de tu WiFi
     sta.connect('NETLIFE-NELSON', 'Emily2008')
