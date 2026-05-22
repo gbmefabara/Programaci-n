@@ -8,6 +8,7 @@
 # Al finalizar, MicroPython ejecutará automáticamente main.py.
 # ==============================================================================
 
+#En este apartado se estan importando las librerías para el funcionamiento del código, como network para la conexión WiFi, time para manejar tiempos de espera, sys para interactuar con el sistema y uselect para manejar eventos de entrada/salida sin bloqueo.
 import network
 import time
 import sys
@@ -16,7 +17,7 @@ import uselect
 # ==============================================================================
 # 1. MENÚ DE INICIO
 # ==============================================================================
-def menu_inicio(timeout_segundos=5):
+def menu_inicio(timeout_segundos=5): #Esperará 5 segundos para dar una respuesta
     """
     Muestra un menú en la terminal. Avanza automáticamente si no hay respuesta.
     """
